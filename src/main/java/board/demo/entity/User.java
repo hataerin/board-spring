@@ -1,4 +1,4 @@
-package board.demo.domain;
+package board.demo.entity;
 
 import lombok.Builder;
 import lombok.Data;
