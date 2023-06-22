@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="user.INSERT_ADDRESS">
+        INSERT INTO address(
+        user_id,
+        zip_code,
+        detail_addr
+        ) VALUES (?, ?, ?)
+    </entry>
+
+    <entry key="user.SELECT_LAST">
+        SELECT id
+        FROM user
+        ORDER BY id DESC LIMIT 1;
+    </entry>
+
+    <entry key="user.UPDATE_ADDRESS_BY_USER_ID">
+        UPDATE address
+        SET zip_code = ?,
+        detail_addr = ?
+        WHERE user_id = ?
+    </entry>
+</properties>

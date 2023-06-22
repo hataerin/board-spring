@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="board.SELECT_ALL">
+        SELECT *
+        FROM board
+    </entry>
+
+    <entry key="board.SELECT_BY_ID">
+        SELECT *
+        FROM board
+        WHERE id = ?
+    </entry>
+
+    <entry key="board.INSERT_BOARD">
+        INSERT INTO board(
+        title,
+        content,
+        writer
+        ) VALUES(?, ?, ?)
+    </entry>
+
+    <entry key="board.UPDATE_BY_ID">
+        UPDATE board
+        SET title = ?,
+        content = ?,
+        writer = ?
+        WHERE id = ?
+    </entry>
+
+    <entry key="board.DELETE_BY_ID">
+        DELETE
+        FROM board
+        WHERE id = ?
+    </entry>
+</properties>

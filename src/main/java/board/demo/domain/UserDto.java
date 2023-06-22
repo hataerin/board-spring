@@ -1,33 +1,44 @@
-package board.demo.dto;
+package board.demo.domain;
 
+import board.demo.entity.User;
 import lombok.*;
 
 @Data //Getter + Setter + ToString + EqualsAndHashCode + RequiredArgsConstructor
-public class UserAddressDto {
+public class UserDto {
 
 
     private Integer userId; // 회원id
     private String name; // 이름
     private String email; // 메일
     private Integer gender; // 성별
-    private Integer addressId; // 주소id
     private Integer zipCode; // 우편번호
     private String detailAddress; // 상세주소
 
+    public User toEntity() {
+        User user = User.builder()
+                .id(this.userId)
+                .name(this.name)
+                .email(this.email)
+                .gender(this.gender)
+                .zipCode(this.zipCode)
+                .detailAddr(this.detailAddress)
+                .build();
+
+        return user;
+    }
+
     @Builder
-    public UserAddressDto(
+    public UserDto(
             Integer userId,
             String name,
             String email,
             Integer gender,
-            Integer addressId,
             Integer zipCode,
             String detailAddress) {
         this.userId = userId;
         this.name = name;
         this.email = email;
         this.gender = gender;
-        this.addressId = addressId;
         this.zipCode = zipCode;
         this.detailAddress = detailAddress;
     }

@@ -1,10 +1,10 @@
 package board.demo.entity;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
-@Builder
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 public class Board {
     // 게시글id
     private Integer id;
@@ -17,4 +17,15 @@ public class Board {
 
     // 작성자
     private Integer writer;
+
+    @Builder
+    public Board(Integer id,
+                 String title,
+                 String content,
+                 Integer writer) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.writer = writer;
+    }
 }
