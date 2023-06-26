@@ -33,4 +33,10 @@
         FROM board
         WHERE id = ?
     </entry>
+
+    <entry key="board.DELETE_BY_ID2">
+        DELETE
+        FROM board
+        WHERE id = ?
+    </entry>
 </properties>

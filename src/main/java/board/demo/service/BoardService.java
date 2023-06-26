@@ -32,7 +32,7 @@ public class BoardService {
 
         for (Board board : boardList) {
             BoardDto boardDto = BoardDto.builder()
-                    .boardId(board.getId())
+                    .num(board.getId())
                     .title(board.getTitle())
                     .content(board.getContent())
                     .writer(board.getWriter())
@@ -52,7 +52,7 @@ public class BoardService {
         }
 
         BoardDto boardDto = BoardDto.builder()
-                .boardId(board.getId())
+                .num(board.getId())
                 .title(board.getTitle())
                 .content(board.getContent())
                 .writer(board.getWriter())
@@ -60,6 +60,8 @@ public class BoardService {
 
         return boardDto;
     }
+
+    //게시판 글쓴이별 조회
 
     //게시판 등록
     public void createBoard(BoardDto boardDto) {

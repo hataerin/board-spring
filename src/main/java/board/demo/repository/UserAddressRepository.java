@@ -1,7 +1,7 @@
 package board.demo.repository;
 
 import board.demo.entity.User;
-import board.demo.utils.UserSQLProps;
+import board.demo.entity.UserSQLProps;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

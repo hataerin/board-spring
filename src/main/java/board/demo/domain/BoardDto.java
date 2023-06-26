@@ -7,14 +7,14 @@ import lombok.Data;
 @Data
 public class BoardDto {
 
-    private Integer boardId;
+    private Long num;
     private String title;
     private String content;
     private Integer writer;
 
     public Board toEntity() {
         Board board = Board.builder()
-                .id(this.boardId)
+                .id(this.num)
                 .title(this.title)
                 .content(this.content)
                 .writer(this.writer)
@@ -22,13 +22,13 @@ public class BoardDto {
         return board;
     }
 
-    @Builder
+    @Builder //builder사용하는거 좋음
     public BoardDto(
-            Integer boardId,
+            Long num,
             String title,
             String content,
             Integer writer) {
-        this.boardId = boardId;
+        this.num = num;
         this.title = title;
         this.content = content;
         this.writer = writer;

@@ -26,7 +26,7 @@ public class UserController {
     }
 
     //회원 상세 조회
-    @GetMapping("/:{userId}")
+    @GetMapping("/{userId}")
     private UserDto findUserById(@PathVariable String userId) {
 
         return this.userService.getUserById(userId);
@@ -39,13 +39,13 @@ public class UserController {
     }
 
     //회원 수정
-    @PutMapping("/:{userId}")
+    @PutMapping("/{userId}")
     private void modifyUser(@PathVariable String userId, @RequestBody UserDto userDto) {
         this.userService.modifyUser(userId, userDto);
     }
 
     //회원 삭제
-    @DeleteMapping("/:{userId}")
+    @DeleteMapping("/{userId}")
     private void deleteUser(@PathVariable String userId) {
         this.userService.deleteUser(userId);
     }

@@ -1,4 +1,4 @@
-package board.demo.utils;
+package board.demo.entity;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -6,8 +6,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component
-@PropertySource("classpath:user/user.xml")
-@PropertySource("classpath:user/address.xml")
+@PropertySource("classpath:sql/user/user.xml")
+@PropertySource("classpath:sql/user/address.xml")
 @ConfigurationProperties(prefix = "user")
 @Data
 public class UserSQLProps {

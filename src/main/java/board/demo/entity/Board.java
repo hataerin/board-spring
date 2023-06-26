@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 public class Board {
     // 게시글id
-    private Integer id;
+    private Long id;
 
     // 제목
     private String title;
@@ -19,7 +19,7 @@ public class Board {
     private Integer writer;
 
     @Builder
-    public Board(Integer id,
+    public Board(Long id,
                  String title,
                  String content,
                  Integer writer) {

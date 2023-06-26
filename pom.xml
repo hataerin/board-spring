@@ -50,14 +50,14 @@
 
     <build>
         <resources>
-            <resource> <!-- 쿼리문 경로 지정 -->
-                <directory>src/main/resources/sql</directory>
-                <filtering>true</filtering>
-            </resource>
-            <resource> <!-- config파일 경로 지정(application.yaml) -->
-                <directory>src/main/resources/config</directory>
-                <filtering>true</filtering>
-            </resource>
+<!--            <resource> &lt;!&ndash; 쿼리문 경로 지정 &ndash;&gt;-->
+<!--                <directory>src/main/resources/sql</directory>-->
+<!--                <filtering>true</filtering>-->
+<!--            </resource>-->
+<!--            <resource> &lt;!&ndash; config파일 경로 지정(application.yaml) &ndash;&gt;-->
+<!--                <directory>src/main/resources/config</directory>-->
+<!--                <filtering>true</filtering>-->
+<!--            </resource>-->
         </resources>
 
         <plugins>

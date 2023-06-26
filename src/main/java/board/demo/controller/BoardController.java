@@ -27,10 +27,16 @@ public class BoardController {
     }
 
     //게시판 상세 조회
-    @GetMapping("/:{id}")
+    @GetMapping("/{id}")
     private BoardDto findBoardById(@PathVariable Long id) {
         return this.boardService.getBoardById(id);
     }
+
+    //게시판 글쓴이별 조회
+//    @GetMapping("users/{id}")
+//    private BoardDto findBoardByUserId(@PathVariable Long id) {
+//        return this.boardService.getBoardByUserId(id);
+//    }
 
     //게시판 등록
     @PostMapping
@@ -39,13 +45,13 @@ public class BoardController {
     }
 
     //게시판 수정
-    @PutMapping("/:{id}")
+    @PutMapping("/{id}")
     private void editBoard(@PathVariable Long id, @RequestBody BoardDto boardDto) {
         this.boardService.modifyBoard(id, boardDto);
     }
 
     //게시판 삭제
-    @DeleteMapping("/:{id}")
+    @DeleteMapping("/{id}")
     private void deleteBoard(@PathVariable Long id) {
         this.boardService.removeBoard(id);
     }
