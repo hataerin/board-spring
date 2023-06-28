@@ -4,7 +4,9 @@ import board.demo.dto.UserDto;
 import board.demo.entity.User;
 import board.demo.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,22 +34,38 @@ public class UserService {
                     .userId(user.getUserId())
                     .name(user.getName())
                     .email(user.getEmail())
-                            .gender(user.getGender())
+                    .gender(user.getGender())
                     .build();
 
             dtoList.add(dto);
         }
-
         return dtoList;
     }
 
 
     // 회원 상세 조회
+    public UserDto getUserById(String userId) {
+        User user = this.userRepository.findById(Integer.valueOf(userId)).get();
 
+        if (user == null) {
+            return null;
+        }
+
+        UserDto dto = UserDto.builder()
+                .userId(user.getUserId())
+                .name(user.getName())
+                .email(user.getEmail())
+                .gender(user.getGender())
+                .build();
+        return dto;
+    }
 
 
     // 회원 등록
-
+    @Transactional
+    public void createUser(UserDto dto) {
+        this.userRepository.save(dto.toEntity());
+    }
 
 
     // 회원 수정

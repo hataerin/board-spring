@@ -7,13 +7,13 @@ import jakarta.persistence.*;
 public class Address {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "address_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer AddressId; // 주소id
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private Integer owner; // 회원id
+//    @OneToOne
+//    @JoinColumn(name = "user_id")
+//    private Integer owner; // 회원id
 
     private Integer zipCode; // 우편번호
 

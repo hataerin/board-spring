@@ -2,6 +2,7 @@ package board.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.Setter;
 
 @Entity
 @Table(name = "board")
@@ -9,7 +10,7 @@ public class Board {
 
 
     @Id
-    @Column(name = "id")
+    @Column(name = "board_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer boardId; // 게시글id
 
@@ -18,6 +19,10 @@ public class Board {
     private String content; // 내용
 
     @ManyToOne
-    @JoinColumn(name = "boardId")
-    private Integer writer; // 작성자
+    @JoinColumn(name = "writer", insertable = false, updatable = false) //컬럼명
+    private User writer; // 작성자
+
+    @Setter
+    @Column(name = "writer")
+    private Long writerId;
 }
