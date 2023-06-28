@@ -71,7 +71,7 @@ public class UserService {
     // 회원 수정
     @Transactional
     public void modifyUser(Integer userId, UserDto dto) {
-        User before = this.userRepository.findById(Integer.valueOf(userId)).get();
+        User before = this.userRepository.findById(userId).get();
 
         User user = User.builder()
                 .userId(userId)
