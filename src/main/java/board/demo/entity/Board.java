@@ -1,20 +1,23 @@
-package board.demo.domain;
+package board.demo.entity;
 
-import lombok.Builder;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 
-@Builder
-@Data
+@Entity
+@Table(name = "board")
 public class Board {
-    // 게시글id
-    private Integer id;
 
-    // 제목
-    private String title;
 
-    // 내용
-    private String content;
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer boardId; // 게시글id
 
-    // 작성자
-    private Integer writer;
+    private String title; // 제목
+
+    private String content; // 내용
+
+    @ManyToOne
+    @JoinColumn(name = "boardId")
+    private Integer writer; // 작성자
 }

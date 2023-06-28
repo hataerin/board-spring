@@ -1,22 +1,23 @@
-package board.demo.domain;
+package board.demo.entity;
 
-import lombok.Builder;
-import lombok.Data;
+import jakarta.persistence.*;
 
-@Builder
-@Data //Getter + Setter + ToString + EqualsAndHashCode + RequiredArgsConstructor
+@Entity
+@Table(name = "address")
 public class Address {
 
-    // 주소id
-    private Integer id;
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer AddressId; // 주소id
 
-    // 회원id
-    private Integer userId;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private Integer owner; // 회원id
 
-    // 우편번호
-    private Integer zipCode;
+    private Integer zipCode; // 우편번호
 
-    // 상세주소
-    private String detailAddress;
+    @Column(name = "detail_addr")
+    private String detailAddress; // 상세주소
 
 }
