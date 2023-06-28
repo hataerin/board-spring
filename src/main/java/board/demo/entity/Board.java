@@ -22,7 +22,7 @@ public class Board {
     @JoinColumn(name = "writer", insertable = false, updatable = false) //컬럼명
     private User writer; // 작성자
 
-    @Setter
-    @Column(name = "writer")
-    private Long writerId;
+//    @Setter
+//    @Column(name = "writer")
+//    private Long writerId;
 }

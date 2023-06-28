@@ -1,5 +1,6 @@
 package board.demo.dto;
 
+import board.demo.entity.User;
 import lombok.*;
 
 @Getter
@@ -33,9 +34,8 @@ public class UserDto {
         this.gender = gender;
     }
 
-    public UserDto toEntity() {
-        UserDto user = UserDto.builder()
-                .userId(this.userId)
+    public User toEntity() {
+        User user = User.builder()
                 .name(this.name)
                 .email(this.email)
                 .gender(this.gender)

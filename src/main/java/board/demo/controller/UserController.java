@@ -25,7 +25,7 @@ public class UserController {
     // 회원 상세 조회
     @GetMapping("/{userId}")
     private UserDto findUserById(@PathVariable Integer userId) {
-        return this.userService.getUserById(String.valueOf(userId));
+        return this.userService.getUserById(userId);
     }
 
     // 회원 등록
@@ -35,7 +35,15 @@ public class UserController {
     }
 
     // 회원 수정
+    @PutMapping("/{userId}")
+    private void editUserInfo(@PathVariable Integer userId, @RequestBody UserDto dto) {
+        this.userService.modifyUser(userId, dto);
+    }
 
 
     // 회원 삭제
+    @DeleteMapping("/{userId}")
+    private void deleteUserInfo(@PathVariable Integer userId) {
+        this.userService.removeUser(userId);
+    }
 }

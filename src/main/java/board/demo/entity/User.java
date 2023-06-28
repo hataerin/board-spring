@@ -1,14 +1,15 @@
 package board.demo.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @Getter
 @Entity
+@NoArgsConstructor
 @Table(name = "user")
 public class User {
 
@@ -28,6 +29,17 @@ public class User {
 
 //    @OneToOne(mappedBy = "owner")
 //    private Integer addressId;
+
+    @Builder
+    public User(Integer userId,
+                   String name,
+                   String email,
+                   Integer gender) {
+        this.userId = userId;
+        this.name = name;
+        this.email = email;
+        this.gender = gender;
+    }
 
 }
 

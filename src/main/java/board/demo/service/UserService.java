@@ -44,8 +44,8 @@ public class UserService {
 
 
     // 회원 상세 조회
-    public UserDto getUserById(String userId) {
-        User user = this.userRepository.findById(Integer.valueOf(userId)).get();
+    public UserDto getUserById(Integer userId) {
+        User user = this.userRepository.findById(userId).get();
 
         if (user == null) {
             return null;
@@ -69,8 +69,23 @@ public class UserService {
 
 
     // 회원 수정
+    @Transactional
+    public void modifyUser(Integer userId, UserDto dto) {
+        User before = this.userRepository.findById(Integer.valueOf(userId)).get();
+
+        User user = User.builder()
+                .userId(userId)
+                .name(dto.getName())
+                .email(dto.getEmail())
+                .gender(dto.getGender())
+                .build();
+        this.userRepository.save(user);
+    }
 
 
-
-    // 회원 삭제
+        // 회원 삭제
+        @Transactional
+        public void removeUser(Integer userId) {
+            this.userRepository.deleteById(userId);
+        }
 }
