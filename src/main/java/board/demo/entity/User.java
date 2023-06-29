@@ -5,15 +5,17 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import nonapi.io.github.classgraph.json.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @RequiredArgsConstructor
 @Getter
 @Setter
-@Table(name = "user")
+@Table("user")
 public class User {
 
     @Id
+    @Column("user_id")
     private Integer userId; // 회원id
 
     private String name; // 이름

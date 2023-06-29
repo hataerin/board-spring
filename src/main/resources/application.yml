@@ -9,14 +9,16 @@ spring:
     username: taerin
     password: '0000'
 
-  flyway:
-    enabled: true # flyway를 사용하겠다
-    baseline-on-migrate: true # flyway는 버전 정보를 flyway_shcema_history 라는 테이블에서 관리하는데 해당 테이블을 자동으로 생성해주는 옵션입
-    url: jdbc:mysql://localhost:3306/data_jdbc
-    user: taerin
-    password: '0000'
+#  flyway:
+#    enabled: true # flyway를 사용하겠다
+#    baseline-on-migrate: true # flyway는 버전 정보를 flyway_shcema_history 라는 테이블에서 관리하는데 해당 테이블을 자동으로 생성해주는 옵션입
+#    url: jdbc:mysql://localhost:3306/data_jdbc
+#    user: taerin
+#    password: '0000'
 
   logging:
     level:
-      org.hibernate.SQL: debug
-      org.hibernate.type: trace
+      org:
+        springframework:
+          jdbc:
+            core: TRACE
