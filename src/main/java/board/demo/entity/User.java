@@ -1,5 +1,6 @@
 package board.demo.entity;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -20,6 +21,17 @@ public class User {
     private String email; // 메일
 
     private Integer gender; // 성별
+
+    @Builder
+    private User (Integer userId,
+                     String name,
+                     String email,
+                     Integer gender) {
+        this.userId = userId;
+        this.name = name;
+        this.email = email;
+        this.gender = gender;
+    }
 
 
 }
