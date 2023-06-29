@@ -1,21 +1,25 @@
-package board.demo.domain;
+package board.demo.entity;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import nonapi.io.github.classgraph.json.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
-@Builder
-@Data
+@RequiredArgsConstructor
+@Getter
+@Setter
+@Table(name = "user")
 public class User {
-    // 회원id
-    private Integer id;
 
-    // 이름
-    private String name;
+    @Id
+    private Integer userId; // 회원id
 
-    // 메일
-    private String email;
+    private String name; // 이름
 
-    // 성별
-    private Integer gender;
+    private String email; // 메일
+
+    private Integer gender; // 성별
+
 
 }
