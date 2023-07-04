@@ -18,7 +18,7 @@
         WHERE id = #{id};
     </select>
 
-    <select id="findDetailById" resultType="Board">
+    <select id="findDetailById" resultType="BoardDetailDto">
         select A.id, A.title, A.content, A.writer, B.name, C.detail_addr
         from board A
                  left outer

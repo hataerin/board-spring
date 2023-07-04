@@ -24,14 +24,14 @@ public class BoardController {
     }
 
     // 게시판 상세 조회
-    @GetMapping("/{boardId}")
-    private Board findById(@PathVariable Integer boardId) {
-        return boardService.findById(boardId);
-    }
 //    @GetMapping("/{boardId}")
-//    private BoardDetailDto findById(@PathVariable Integer boardId) {
-//        return boardService.findDetailById(boardId);
+//    private Board findById(@PathVariable Integer boardId) {
+//        return boardService.findById(boardId);
 //    }
+    @GetMapping("/{boardId}")
+    private BoardDetailDto findById(@PathVariable Integer boardId) {
+        return boardService.findDetailById(boardId);
+    }
 
     // 게시판 등록
     @PostMapping
