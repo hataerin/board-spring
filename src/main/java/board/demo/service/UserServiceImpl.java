@@ -1,6 +1,6 @@
 package board.demo.service;
 
-import board.demo.mapper.UserMapper;
+import board.demo.mapper.master.UserMapper;
 import board.demo.model.User;
 import board.demo.model.UserAddressDto;
 import board.demo.model.UserDto;

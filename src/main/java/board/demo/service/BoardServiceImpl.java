@@ -1,6 +1,7 @@
 package board.demo.service;
 
-import board.demo.mapper.BoardMapper;
+import board.demo.mapper.master.BoardMapper;
+//import board.demo.mapper.slave.BoardMapper;
 import board.demo.model.Board;
 import board.demo.model.BoardDetailDto;
 import board.demo.model.BoardDto;
@@ -13,9 +14,11 @@ import java.util.List;
 public class BoardServiceImpl implements BoardService{
 
     private BoardMapper boardMapper;
+//    private BoardMapper slaveBoardMapper;
 
     public BoardServiceImpl(BoardMapper boardMapper) {
         this.boardMapper = boardMapper;
+
     }
 
     // 게시판 목록 조회

@@ -1,4 +1,4 @@
-package board.demo.mapper;
+package board.demo.mapper.master;
 
 import board.demo.model.User;
 import board.demo.model.UserAddressDto;
@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-@Mapper
+
 public interface UserMapper {
 
     // 회원 목록 조회

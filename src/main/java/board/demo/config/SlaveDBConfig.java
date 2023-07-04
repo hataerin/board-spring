@@ -10,47 +10,42 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(value = "board.demo.mapper.master", sqlSessionFactoryRef = "masterSqlSessionFactory")
+// ! Mapper JAVA file package path / 서로 다른 패키지 경로 명을 기준으로 탐색
+@MapperScan(value = "board.demo.mapper.slave", sqlSessionFactoryRef = "slaveSqlSessionFactory")
 @EnableTransactionManagement
-public class MasterDBConfig {
+public class SlaveDBConfig {
 
     private final ApplicationContext applicationContext;
 
-    public MasterDBConfig(ApplicationContext applicationContext) {
+    public SlaveDBConfig(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
     }
 
-    @Primary
-    @Bean(name = "masterDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.master")
-    DataSource masterDataSource() {
+    @Bean(name = "slaveDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.slave")
+    DataSource slaveDataSource() {
         return DataSourceBuilder.create().build();
     }
 
-    @Primary
-    @Bean(name = "masterSqlSessionFactory")
-    SqlSessionFactory masterSqlSessionFactory(@Qualifier("masterDataSource") DataSource masterDataSource) throws Exception {
+    @Bean(name = "slaveSqlSessionFactory")
+    SqlSessionFactory slaveSqlSessionFactory(@Qualifier("slaveDataSource") DataSource slaveDataSource) throws Exception {
         final SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
 
-        sqlSessionFactoryBean.setDataSource(masterDataSource);
+        sqlSessionFactoryBean.setDataSource(slaveDataSource);
 
 //        // MyBatis XML mapper resource file path
-//        sqlSessionFactoryBean.setMapperLocations(this.applicationContext.getResource("classpath:mybatis/mapper/master/master-mapper.xml"));
+//        sqlSessionFactoryBean.setMapperLocations(this.applicationContext.getResources("classpath:mybatis/mapper/slave/slave-mapper.xml"));
 
         return sqlSessionFactoryBean.getObject();
     }
 
-    @Primary
-    @Bean(name = "masterSqlSessionTemplate")
-    SqlSessionTemplate masterSqlSessionTemplate(SqlSessionFactory masterSqlSessionFactory) throws Exception {
-        return new SqlSessionTemplate(masterSqlSessionFactory);
+    @Bean(name = "slaveSqlSessionTemplate")
+    SqlSessionTemplate slaveSqlSessionTemplate(SqlSessionFactory slaveSqlSessionFactory) throws Exception {
+        return new SqlSessionTemplate(slaveSqlSessionFactory);
     }
-
-
 }

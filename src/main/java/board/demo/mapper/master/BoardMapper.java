@@ -1,4 +1,4 @@
-package board.demo.mapper;
+package board.demo.mapper.master;
 
 import board.demo.model.Board;
 import board.demo.model.BoardDetailDto;
@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-@Mapper
+
 public interface BoardMapper {
 
     // 게시판 목록 조회
