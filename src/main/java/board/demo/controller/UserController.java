@@ -1,13 +1,15 @@
 package board.demo.controller;
 
 import board.demo.model.User;
+import board.demo.model.UserAddressDto;
 import board.demo.model.UserDto;
 import board.demo.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -20,14 +22,19 @@ public class UserController {
 
 
     // 회원 목록 조회
+//    @GetMapping
+//    public List<User> findAll() {
+//        return userService.findAll();
+//    }
+
     @GetMapping
-    public List<User> findAll() {
-        return userService.findAll();
+    public List<UserAddressDto> findAll() {
+        return userService.findAllDetail();
     }
 
     // 회원 상세 조회
     @GetMapping("/{userId}")
-    public User findById(@PathVariable Integer userId) {
+    public UserAddressDto findById(@PathVariable Integer userId) {
         return userService.findById(userId);
     }
 

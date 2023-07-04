@@ -1,6 +1,7 @@
 package board.demo.mapper;
 
 import board.demo.model.User;
+import board.demo.model.UserAddressDto;
 import board.demo.model.UserDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -13,8 +14,11 @@ public interface UserMapper {
     // 회원 목록 조회
     List<User> findAll();
 
+    // 회원 주소 포함 목록 조회
+    List<UserAddressDto> findAllDetail();
+
     // 회원 상세 조회
-    User findById(Integer id);
+    UserAddressDto findById(Integer id);
 
     // 회원 등록
     void createUser(@Param("user") UserDto user);

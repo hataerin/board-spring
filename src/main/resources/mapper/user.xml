@@ -10,12 +10,22 @@
         FROM user;
     </select>
 
+    <!-- 회원 주소 포함 조회 -->
+    <select id="findAllDetail" resultType="UserAddressDto">
+        SELECT A.*, B.zip_code, B.detail_addr
+        FROM user A
+                 LEFT OUTER JOIN address B
+                                 ON A.id = B.user_id;
+
+    </select>
+
     <!-- 회원 상세 조회 -->
-    <select id="findById" resultType="User">
-        SELECT
-            *
-        FROM user
-        WHERE id = #{id};
+    <select id="findById" resultType="UserAddressDto">
+        SELECT A.*, B.zip_code, B.detail_addr
+        FROM user A
+                 LEFT OUTER JOIN address B
+                                 ON A.id = B.user_id
+        WHERE A.id = #{id};
     </select>
 
     <!-- 회원 등록 -->
@@ -24,6 +34,7 @@
         INTO user(name, email, gender)
         VALUES (#{user.name}, #{user.email}, #{user.gender});
     </insert>
+
 
     <!-- 회원 수정 -->
     <update id="updateUser" parameterType="UserDto">
@@ -41,5 +52,7 @@
         WHERE id = #{id}
     </delete>
 
+
+    <!--    -->
 
 </mapper>
