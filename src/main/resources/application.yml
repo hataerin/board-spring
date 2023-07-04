@@ -2,13 +2,20 @@
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/jpa
+    url: jdbc:mysql://localhost:3306/mybatis
     username: taerin
     password: '0000'
-  jpa:
-    show-sql: true # 쿼리 보여주는 옵션
-    hibernate:
-      ddl-auto: update # Entity 클래스와 DB 스키마를 비교하여 DB에 생성되지 않은 테이블, 칼럼을 추가하며 제거는 하지 않습니다.
-    properties:
-      hibernate:
-        format_sql: true # 쿼리 포맷팅
+
+
+# MyBatis
+mybatis:
+  type-aliases-package: board.demo.model # 파라미터, 응답값에 패키지명 등을 안적어도 되게
+  configuration:
+    map-underscore-to-camel-case: true # DB의 underscore를 camel case로 자동 변환
+  mapper-locations: classpath:mapper/**/*.xml # resources/mapper 하위에 있는 xml을 매핑파일로 인식
+logging:
+  level:
+    board:
+      demo:
+        repository:
+          mybatis: trace # board.demo.repository.mybatis 로그 추출

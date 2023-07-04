@@ -1,0 +1,20 @@
+# 기본 환경(로컬)에서 적용되는 DB 설정
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis
+    username: taerin
+    password: '0000'
+
+
+# MyBatis
+mybatis:
+  type-aliases-package: board.demo.domain # 마이바티스 타입정보 사용시 패키지 이름 생략 가능
+  configuration:
+    map-underscore-to-camel-case: true # 언더바를 카멜로 자동 변환
+logging:
+  level:
+    board:
+      demo:
+        repository:
+          mybatis: trace # 마이바티스에서 실행되는 쿼리 로그 확인
