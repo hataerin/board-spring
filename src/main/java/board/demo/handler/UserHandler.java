@@ -18,6 +18,7 @@ import reactor.core.publisher.Mono;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Component
 public class UserHandler {
 
@@ -41,13 +42,13 @@ public class UserHandler {
     public Mono<ServerResponse> getByUserId(ServerRequest req) {
         Integer userId = Integer.valueOf(req.pathVariable("userId"));
 
-        Mono<User> user = Mono.just(this.userRepository.findById(userId).get());
+        Mono<User> user = Mono.just(this.userRepository.findByUserId(userId));
 
+        log.warn(user.toString());
         return ServerResponse.ok() // HTTP Status Code 200 [OK]
                 .contentType(MediaType.APPLICATION_JSON) // Response Content Type
                 .body(user, User.class) // Response Body
                 .switchIfEmpty(ServerResponse.notFound().build());
-
     }
 
     // 회원 등록
@@ -55,6 +56,8 @@ public class UserHandler {
     public Mono<ServerResponse> saveUser(ServerRequest req) {
 
         Mono<UserDto> userDtoMono = req.bodyToMono(UserDto.class);
+
+        log.warn(req.body(UserDto.class));
 
         return userDtoMono.flatMap(userDto -> Mono.fromCallable(() -> this.userRepository.save(userDto.toEntity())))
                 .flatMap(data -> ServerResponse.ok() // HTTP Status Code 200 [OK]

@@ -7,4 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
 
+    @Query("select * from user where user_id = :userId")
+    User findByUserId(@Param("userId") Integer id);
+
 }

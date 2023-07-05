@@ -6,7 +6,7 @@ GET http://localhost:8080/users
 
 ###
 # 회원 상세 조회
-GET http://localhost:8080/users/4
+GET http://localhost:8080/users/11
 
 ###
 # 회원 등록
@@ -14,7 +14,7 @@ POST http://localhost:8080/users
 Content-Type: application/json
 
 {
-  "name": "태린",
+  "name": "ghghgh태린",
   "email": "taerin@email.com",
   "gender": 2
 }
