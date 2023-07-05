@@ -4,7 +4,7 @@ import board.demo.model.BoardDto;
 import org.apache.ibatis.annotations.Param;
 
 
-public interface MasterBoardMapper {
+public interface MasterBoardMapper { //Mapper가 DataSource지정할수있는지 찾아보기
 
     // 게시판 등록
     void createBoard(@Param("board") BoardDto board);
