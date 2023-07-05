@@ -15,8 +15,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 @Configuration
-// ! Mapper JAVA file package path / 서로 다른 패키지 경로 명을 기준으로 탐색
-@MapperScan(value = "board.demo.mapper.slave", sqlSessionFactoryRef = "slaveSqlSessionFactory")
+@MapperScan(value = "board.demo.mapper.slave",
+        sqlSessionFactoryRef = "slaveSqlSessionFactory")
 @EnableTransactionManagement
 public class SlaveDBConfig {
 
@@ -33,19 +33,21 @@ public class SlaveDBConfig {
     }
 
     @Bean(name = "slaveSqlSessionFactory")
-    SqlSessionFactory slaveSqlSessionFactory(@Qualifier("slaveDataSource") DataSource slaveDataSource) throws Exception {
+    SqlSessionFactory slaveSqlSessionFactory(
+            @Qualifier("slaveDataSource") DataSource slaveDataSource) throws Exception {
         final SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
 
         sqlSessionFactoryBean.setDataSource(slaveDataSource);
-
-//        // MyBatis XML mapper resource file path
-//        sqlSessionFactoryBean.setMapperLocations(this.applicationContext.getResources("classpath:mybatis/mapper/slave/slave-mapper.xml"));
+        sqlSessionFactoryBean.setTypeAliasesPackage("board.demo.model");
+        sqlSessionFactoryBean.setMapperLocations(
+                this.applicationContext.getResources("classpath:mapper/slave/**/*.xml"));
 
         return sqlSessionFactoryBean.getObject();
     }
 
     @Bean(name = "slaveSqlSessionTemplate")
-    SqlSessionTemplate slaveSqlSessionTemplate(SqlSessionFactory slaveSqlSessionFactory) throws Exception {
+    SqlSessionTemplate slaveSqlSessionTemplate(SqlSessionFactory slaveSqlSessionFactory)
+            throws Exception {
         return new SqlSessionTemplate(slaveSqlSessionFactory);
     }
 }

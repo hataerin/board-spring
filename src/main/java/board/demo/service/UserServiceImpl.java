@@ -1,6 +1,7 @@
 package board.demo.service;
 
-import board.demo.mapper.master.UserMapper;
+import board.demo.mapper.master.MasterUserMapper;
+import board.demo.mapper.slave.SlaveUserMapper;
 import board.demo.model.User;
 import board.demo.model.UserAddressDto;
 import board.demo.model.UserDto;
@@ -14,48 +15,49 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserMapper userMapper;
+    private final MasterUserMapper masterUserMapper;
+    private final SlaveUserMapper slaveUserMapper;
 
-    public UserServiceImpl(UserMapper userMapper) {
-        this.userMapper = userMapper;
+    public UserServiceImpl(MasterUserMapper masterUserMapper, SlaveUserMapper slaveUserMapper) {
+        this.masterUserMapper = masterUserMapper;
+        this.slaveUserMapper = slaveUserMapper;
     }
-
 
     @Override
     @Transactional
     public List<User> findAll() {
-        return userMapper.findAll();
+        return masterUserMapper.findAll();
     }
 
     @Override
     @Transactional
     public List<UserAddressDto> findAllDetail() {
-        return userMapper.findAllDetail();
+        return masterUserMapper.findAllDetail();
     }
 
     @Override
     @Transactional
     public UserAddressDto findById(Integer id) {
 
-        return userMapper.findById(id);
+        return masterUserMapper.findById(id);
     }
 
     @Override
     @Transactional
     public void createUser(UserDto userDto) {
-        userMapper.createUser(userDto);
+        masterUserMapper.createUser(userDto);
     }
 
     @Override
     @Transactional
     public void updateUser(Integer id,UserDto userDto) {
-        userMapper.updateUser(id, userDto);
+        masterUserMapper.updateUser(id, userDto);
     }
 
 
     @Override
     @Transactional
     public void deleteUser(Integer id) {
-        userMapper.deleteUser(id);
+        masterUserMapper.deleteUser(id);
     }
 }
