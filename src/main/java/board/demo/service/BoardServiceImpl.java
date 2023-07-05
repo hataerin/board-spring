@@ -1,9 +1,7 @@
 package board.demo.service;
 
 import board.demo.mapper.master.MasterBoardMapper;
-//import board.demo.mapper.slave.BoardMapper;
 import board.demo.mapper.slave.SlaveBoardMapper;
-import board.demo.mapper.slave.SlaveUserMapper;
 import board.demo.model.Board;
 import board.demo.model.BoardDetailDto;
 import board.demo.model.BoardDto;
@@ -27,20 +25,20 @@ public class BoardServiceImpl implements BoardService{
     @Override
     @Transactional
     public List<Board> findAll() {
-        return masterBoardMapper.findAll();
+        return slaveBoardMapper.findAll();
     }
 
     // 게시판 상세 조회
     @Override
     @Transactional
     public Board findById(Integer id) {
-        return masterBoardMapper.findById(id);
+        return slaveBoardMapper.findById(id);
     }
 
     @Override
     @Transactional
     public BoardDetailDto findDetailById(Integer id) {
-        return masterBoardMapper.findDetailById(id);
+        return slaveBoardMapper.findDetailById(id);
     }
 
     // 게시판 등록

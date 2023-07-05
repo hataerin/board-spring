@@ -26,20 +26,20 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public List<User> findAll() {
-        return masterUserMapper.findAll();
+        return slaveUserMapper.findAll();
     }
 
     @Override
     @Transactional
     public List<UserAddressDto> findAllDetail() {
-        return masterUserMapper.findAllDetail();
+        return slaveUserMapper.findAllDetail();
     }
 
     @Override
     @Transactional
     public UserAddressDto findById(Integer id) {
 
-        return masterUserMapper.findById(id);
+        return slaveUserMapper.findById(id);
     }
 
     @Override
