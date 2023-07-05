@@ -25,11 +25,12 @@ PUT http://localhost:8080/users/4
 Content-Type: application/json
 
 {
-  "name": "홍길동",
+  "userId": 4,
+  "name": "홍길asdfasdf동",
   "email": "gildong@email.com",
   "gender": 1
 }
 
 ###
 # 회원 삭제
-DELETE http://localhost:8080/users/4
+DELETE http://localhost:8080/users/11

@@ -1,7 +1,7 @@
 package board.demo.entity;
 
 import lombok.Builder;
-import nonapi.io.github.classgraph.json.Id;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 
 public class Board {

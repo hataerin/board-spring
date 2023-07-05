@@ -57,8 +57,6 @@ public class UserHandler {
 
         Mono<UserDto> userDtoMono = req.bodyToMono(UserDto.class);
 
-        log.warn(req.body(UserDto.class));
-
         return userDtoMono.flatMap(userDto -> Mono.fromCallable(() -> this.userRepository.save(userDto.toEntity())))
                 .flatMap(data -> ServerResponse.ok() // HTTP Status Code 200 [OK]
                         .contentType(MediaType.APPLICATION_JSON) // Response Content Type
