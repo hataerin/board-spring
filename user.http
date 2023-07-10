@@ -14,25 +14,25 @@ POST http://localhost:8080/users
 Content-Type: application/json
 
 {
-  "name": "홍길동",
+  "name": "김길동",
   "email": "gildong@osckorea.com",
   "gender": 1
 }
 
 ###
 # 회원 수정
-PUT http://localhost:8080/users/5
+PUT http://localhost:8080/users/10
 Content-Type: application/json
 
 {
-  "name": "김길동",
+  "name": "히히길동",
   "email": "gildong@email.com",
   "gender": 1
 }
 
 ###
 # 회원 삭제
-DELETE http://localhost:8080/users/5
+DELETE http://localhost:8080/users/10
 
 ###
 # 1번 회원 정보 + 주소 조회
