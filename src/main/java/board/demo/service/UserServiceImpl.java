@@ -55,8 +55,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @CachePut(value = "user", key = "#id")
-    @CacheEvict(value = "user", key = "'all'")
+    @Caching(evict = {
+            @CacheEvict(value = "user", key = "'all'"),
+            @CacheEvict(value = "user", key = "#id")
+    })
     @Transactional
     public void updateUser(Integer id,UserDto userDto) {
         userMapper.updateUser(id, userDto);
