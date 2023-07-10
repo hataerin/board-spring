@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     @Cacheable(value = "user", key = "'all'") // 캐시에 처음 데이터 넣으면 DB변경되어도 저장된 캐시만 가져옴
     @Transactional
     public List<UserAddressDto> findAllDetail() {
-        log.warn("캐시적용: 전체조회");
+        log.warn("캐시적용: 회원 전체조회");
         return userMapper.findAllDetail();
     }
 
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
     @Cacheable(value = "user", key = "#id")
     @Transactional
     public UserAddressDto findById(Integer id) {
-        log.warn("캐시적용: 상세조회");
+        log.warn("캐시적용: 회원 상세조회");
         return userMapper.findById(id);
     }
 

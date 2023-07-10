@@ -6,7 +6,7 @@ GET http://localhost:8080/users
 
 ###
 # 회원 상세 조회
-GET http://localhost:8080/users/16
+GET http://localhost:8080/users/1
 
 ###
 # 회원 등록
