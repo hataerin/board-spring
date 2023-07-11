@@ -1,5 +1,7 @@
 package board.demo.entity;
 
+import board.demo.model.BoardDto;
+import board.demo.model.UserDto;
 import lombok.Builder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
@@ -25,5 +27,16 @@ public class Board {
         this.content = content;
         this.writer = writer;
         this.editor = editor;
+    }
+
+
+    public BoardDto toDto(Board board) {
+        return BoardDto.builder()
+                .boardId(board.boardId)
+                .title(board.title)
+                .content(board.content)
+                .writer(board.writer)
+                .editor(board.editor)
+                .build();
     }
 }

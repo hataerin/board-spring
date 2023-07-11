@@ -1,12 +1,12 @@
 # swagger : http://localhost:8080/swagger-ui/index.html
 
 ###
-# 회원 목록 조회 0
+# 회원 목록 조회
 GET http://localhost:8080/users
 
 ###
 # 회원 상세 조회
-GET http://localhost:8080/users/11
+GET http://localhost:8080/users/17
 
 ###
 # 회원 등록
@@ -14,23 +14,22 @@ POST http://localhost:8080/users
 Content-Type: application/json
 
 {
-  "name": "ghghgh태린",
-  "email": "taerin@email.com",
-  "gender": 2
+  "name": "홍길동",
+  "email": "gildong@osckorea.com",
+  "gender": 1
 }
 
 ###
 # 회원 수정
-PUT http://localhost:8080/users/4
+PUT http://localhost:8080/users/7
 Content-Type: application/json
 
 {
-  "userId": 4,
-  "name": "홍길asdfasdf동",
-  "email": "gildong@email.com",
+  "name": "김길동",
+  "email": "gildong@osckorea.com",
   "gender": 1
 }
 
 ###
 # 회원 삭제
-DELETE http://localhost:8080/users/11
+DELETE http://localhost:8080/users/4

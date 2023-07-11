@@ -36,4 +36,14 @@ public class BoardDto {
                 .build();
         return board;
     }
+    public Board toEntity(Integer boardId) {
+        Board board = Board.builder()
+                .boardId(boardId)
+                .title(this.title)
+                .content(this.content)
+                .writer(this.writer)
+                .editor(this.editor)
+                .build();
+        return board;
+    }
 }

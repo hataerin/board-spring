@@ -6,7 +6,7 @@ GET http://localhost:8080/boards
 
 ###
 # 게시글 상세 조회
-GET http://localhost:8080/boards/11
+GET http://localhost:8080/boards/2
 
 ###
 # 게시글 등록
@@ -14,22 +14,23 @@ POST http://localhost:8080/boards
 Content-Type: application/json
 
 {
-  "title": "안녕하세요",
-  "content": "만나서 반가워요",
-  "writerId": 2
+  "title": "9주차 목표 과제",
+  "content": "WebFlux, Spring Cache",
+  "writer": 7
 }
 
 ###
 # 게시글 수정
-PUT http://localhost:8080/boards/11
+PUT http://localhost:8080/boards/2
 Content-Type: application/json
 
 {
-  "title": "안녕하세요 수정합니다",
-  "content": "만나서 반가워요",
-  "editorId": 3
+  "title": "5주차 목표 과제",
+  "content": "table join, xml",
+  "writer": 18,
+  "editor": 18
 }
 
 ###
 # 게시글 삭제
-DELETE http://localhost:8080/boards/9
+DELETE http://localhost:8080/boards/7

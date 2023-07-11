@@ -1,5 +1,6 @@
 package board.demo.entity;
 
+import board.demo.model.UserDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +34,15 @@ public class User {
         this.name = name;
         this.email = email;
         this.gender = gender;
+    }
+
+    public UserDto toDto(User user) {
+        return UserDto.builder()
+                .userId(user.getUserId())
+                .name(user.getName())
+                .email(user.getEmail())
+                .gender(user.getGender())
+                .build();
     }
 
 
