@@ -6,7 +6,7 @@ GET http://localhost:8080/boards
 
 ###
 # 게시글 상세 조회
-GET http://localhost:8080/boards/2
+GET http://localhost:8080/boards/8
 
 ###
 # 게시글 등록
@@ -21,16 +21,16 @@ Content-Type: application/json
 
 ###
 # 게시글 수정
-PUT http://localhost:8080/boards/2
+PUT http://localhost:8080/boards/8
 Content-Type: application/json
 
 {
   "title": "5주차 목표 과제",
   "content": "table join, xml",
-  "writer": 18,
-  "editor": 18
+  "writeName": 18,
+  "modifyName": 18
 }
 
 ###
 # 게시글 삭제
-DELETE http://localhost:8080/boards/7
+DELETE http://localhost:8080/boards/8

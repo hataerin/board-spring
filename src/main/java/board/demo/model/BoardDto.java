@@ -7,32 +7,32 @@ import lombok.Getter;
 @Getter
 public class BoardDto {
 
-    private Integer boardId;
+    private Integer num;
     private String title;
     private String content;
-    private Integer writer;
-    private Integer editor;
+    private Integer writeName;
+    private Integer modifyName;
 
     @Builder
-    private BoardDto(Integer boardId,
+    private BoardDto(Integer num,
                      String title,
                      String content,
-                     Integer writer,
-                     Integer editor) {
-        this.boardId = boardId;
+                     Integer writeName,
+                     Integer modifyName) {
+        this.num = num;
         this.title = title;
         this.content = content;
-        this.writer = writer;
-        this.editor = editor;
+        this.writeName = writeName;
+        this.modifyName = modifyName;
     }
 
     public Board toEntity() {
         Board board = Board.builder()
-                .boardId(this.boardId)
+                .boardId(this.num)
                 .title(this.title)
                 .content(this.content)
-                .writer(this.writer)
-                .editor(this.editor)
+                .writer(this.writeName)
+                .editor(this.modifyName)
                 .build();
         return board;
     }
@@ -41,8 +41,8 @@ public class BoardDto {
                 .boardId(boardId)
                 .title(this.title)
                 .content(this.content)
-                .writer(this.writer)
-                .editor(this.editor)
+                .writer(this.writeName)
+                .editor(this.modifyName)
                 .build();
         return board;
     }

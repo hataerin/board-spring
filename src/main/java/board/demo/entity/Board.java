@@ -32,11 +32,11 @@ public class Board {
 
     public BoardDto toDto(Board board) {
         return BoardDto.builder()
-                .boardId(board.boardId)
+                .num(board.boardId)
                 .title(board.title)
                 .content(board.content)
-                .writer(board.writer)
-                .editor(board.editor)
+                .writeName(board.writer)
+                .modifyName(board.editor)
                 .build();
     }
 }
