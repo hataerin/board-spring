@@ -1,6 +1,7 @@
 package board.demo.service;
 
 import board.demo.mapper.UserMapper;
+import board.demo.mapper.read.ReadUserMapper;
 import board.demo.model.User;
 import board.demo.model.UserAddressDto;
 import board.demo.model.UserDto;
@@ -14,7 +15,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserMapper userMapper;
+    private ReadUserMapper readUserMapper;
 
     public UserServiceImpl(UserMapper userMapper) {
         this.userMapper = userMapper;

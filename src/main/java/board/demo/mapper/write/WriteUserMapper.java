@@ -1,24 +1,11 @@
 package board.demo.mapper.write;
 
-import board.demo.model.User;
-import board.demo.model.UserAddressDto;
 import board.demo.model.UserDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
-
 @Mapper
-public interface UserMapper {
-
-    // 회원 목록 조회
-    List<User> findAll();
-
-    // 회원 주소 포함 목록 조회
-    List<UserAddressDto> findAllDetail();
-
-    // 회원 상세 조회
-    UserAddressDto findById(Integer id);
+public interface WriteUserMapper {
 
     // 회원 등록
     void createUser(@Param("user") UserDto user);
