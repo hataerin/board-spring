@@ -3,7 +3,6 @@ package board.demo.controller;
 import board.demo.model.Board;
 import board.demo.model.BoardDetailDto;
 import board.demo.model.BoardDto;
-import board.demo.model.UserDto;
 import board.demo.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
