@@ -1,64 +1,65 @@
 package board.demo.service;
 
+import board.demo.dao.UserDao;
 import board.demo.mapper.read.ReadUserMapper;
 import board.demo.mapper.write.WriteUserMapper;
 import board.demo.model.User;
 import board.demo.model.UserAddressDto;
 import board.demo.model.UserDto;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private ReadUserMapper readUserMapper;
-    private WriteUserMapper writeUserMapper;
-
-    public UserServiceImpl(ReadUserMapper readUserMapper, WriteUserMapper writeUserMapper) {
-        this.readUserMapper = readUserMapper;
-        this.writeUserMapper = writeUserMapper;
-    }
+    private final UserDao userDao;
 
 
     @Override
-    @Transactional
     public List<User> findAll() {
-        return readUserMapper.findAll();
+        List<User> userList = this.userDao.findAll();
+
+        List<UserDto> dtoList = new ArrayList<UserDto>();
+
+        return userList;
     }
 
     @Override
-    @Transactional
     public List<UserAddressDto> findAllDetail() {
-        return readUserMapper.findAllDetail();
+        List<User> userList = this.userDao.findAll();
+
+        List<UserAddressDto> dtoList = new ArrayList<UserAddressDto>();
+
+        return dtoList;
+
     }
 
     @Override
-    @Transactional
     public UserAddressDto findById(Integer id) {
+        UserAddressDto userAddressDto = this.userDao.findById(id);
 
-        return readUserMapper.findById(id);
+        return userAddressDto;
     }
 
     @Override
-    @Transactional
     public void createUser(UserDto userDto) {
-        writeUserMapper.createUser(userDto);
+        this.userDao.saveUser(userDto);
     }
 
     @Override
-    @Transactional
-    public void updateUser(Integer id,UserDto userDto) {
-        writeUserMapper.updateUser(id, userDto);
+    public void updateUser(Integer userId, UserDto userDto) {
+        this.userDao.updateUser(userDto.toEntity(userId));
     }
 
-
     @Override
-    @Transactional
     public void deleteUser(Integer id) {
-        writeUserMapper.deleteUser(id);
+        this.userDao.deleteUser(id);
     }
 }

@@ -4,7 +4,7 @@ import board.demo.model.BoardDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-@Mapper
+
 public interface WriteBoardMapper {
 
     // 게시판 등록

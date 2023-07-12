@@ -2,11 +2,12 @@ package board.demo.mapper.read;
 
 import board.demo.model.User;
 import board.demo.model.UserAddressDto;
+import board.demo.model.UserDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-@Mapper
+
 public interface ReadUserMapper {
 
     // 회원 목록 조회
@@ -17,6 +18,7 @@ public interface ReadUserMapper {
 
     // 회원 상세 조회
     UserAddressDto findById(Integer id);
+//    UserDto findById(Integer id);
 
 
 }

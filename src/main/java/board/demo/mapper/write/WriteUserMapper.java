@@ -4,11 +4,11 @@ import board.demo.model.UserDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-@Mapper
+
 public interface WriteUserMapper {
 
     // 회원 등록
-    void createUser(@Param("user") UserDto user);
+    void createUser(UserDto userDto);
 
     // 회원 수정
     void updateUser(@Param("id") Integer id, @Param("user") UserDto user);

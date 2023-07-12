@@ -30,4 +30,14 @@ public class UserDto {
                 .build();
         return user;
     }
+
+    public User toEntity(Integer id) {
+        User user = User.builder()
+                .id(id)
+                .name(this.name)
+                .email(this.email)
+                .gender(this.gender)
+                .build();
+        return user;
+    }
 }

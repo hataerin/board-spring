@@ -24,14 +24,14 @@ public class WriteDbConfig {
     private final ApplicationContext applicationContext;
 
     @Bean(name = "writeDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.write-only")
+    @ConfigurationProperties(prefix = "spring.datasource.write")
     public DataSource writeDataSource() {
         return DataSourceBuilder.create().build();
     }
 
     @Bean(name= "writeTransactionManager")
-    public PlatformTransactionManager writeTransactionManager(@Qualifier("writeDataSource") DataSource cudDataSource) {
-        return new DataSourceTransactionManager(cudDataSource);
+    public PlatformTransactionManager writeTransactionManager(@Qualifier("writeDataSource") DataSource writeDataSource) {
+        return new DataSourceTransactionManager(writeDataSource);
     }
 
     @Bean(name = "writeSqlSessionFactory")
@@ -44,7 +44,7 @@ public class WriteDbConfig {
         // Set base package alias path
         // sqlSessionFactoryBean.setTypeAliasesPackage("com.boardapp.boardapi");
         // ! MyBatis .xml mapper file locations
-        sqlSessionFactoryBean.setMapperLocations(this.applicationContext.getResources("classpath:mybatis/mapper/write/**/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(this.applicationContext.getResources("classpath:mapper/write/**/*.xml"));
 
         return sqlSessionFactoryBean.getObject();
     }

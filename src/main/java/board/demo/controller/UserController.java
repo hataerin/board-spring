@@ -1,5 +1,6 @@
 package board.demo.controller;
 
+import board.demo.model.User;
 import board.demo.model.UserAddressDto;
 import board.demo.model.UserDto;
 import board.demo.service.UserService;
@@ -20,16 +21,16 @@ public class UserController {
     }
 
 
-    // 회원 목록 조회
-//    @GetMapping
-//    public List<User> findAll() {
-//        return userService.findAll();
-//    }
-
+//    회원 목록 조회
     @GetMapping
-    public List<UserAddressDto> findAll() {
-        return userService.findAllDetail();
+    public List<User> findAll() {
+        return userService.findAll();
     }
+
+//    @GetMapping
+//    public List<UserAddressDto> findAll() {
+//        return userService.findAllDetail();
+//    }
 
     // 회원 상세 조회
     @GetMapping("/{userId}")

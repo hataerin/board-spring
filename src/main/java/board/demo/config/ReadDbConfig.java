@@ -28,7 +28,7 @@ public class ReadDbConfig {
 
     @Primary
     @Bean(name = "readDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.read-only")
+    @ConfigurationProperties(prefix = "spring.datasource.read")
     DataSource readDataSource() {
         return DataSourceBuilder.create().build();
     }
@@ -46,7 +46,7 @@ public class ReadDbConfig {
 
         sqlSessionFactoryBean.setDataSource(readDataSource);
 
-        sqlSessionFactoryBean.setMapperLocations(this.applicationContext.getResources("classpath:mybatis/mapper/read/**/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(this.applicationContext.getResources("classpath:mapper/read/**/*.xml"));
 
         return sqlSessionFactoryBean.getObject();
     }

@@ -1,10 +1,9 @@
 package board.demo.model;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
+@Setter
 @NoArgsConstructor
 public class User {
 
@@ -15,6 +14,15 @@ public class User {
     private String email; // 메일
 
     private Integer gender; // 성별
+
+    public UserDto toDto() {
+        return UserDto.builder()
+                .id(this.id)
+                .name(this.name)
+                .email(this.email)
+                .gender(this.gender)
+                .build();
+    }
 
     @Builder
     private User (Integer id,

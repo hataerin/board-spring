@@ -1,6 +1,8 @@
 package board.demo.dao;
 
 import board.demo.model.User;
+import board.demo.model.UserAddressDto;
+import board.demo.model.UserDto;
 
 import java.util.List;
 
@@ -8,9 +10,9 @@ public interface UserDao {
 
     List<User> findAll();
 
-    User findById(Integer userId);
+    UserAddressDto findById(Integer userId);
 
-    void saveUser(User user);
+    void saveUser(UserDto userDto);
 
     void updateUser(User user);
 
