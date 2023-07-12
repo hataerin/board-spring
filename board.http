@@ -15,8 +15,8 @@ Content-Type: application/json
 
 {
   "title": "9주차 목표 과제",
-  "content": "WebFlux, Spring Cache",
-  "writer": 7
+  "contents": "WebFlux, Spring Cache",
+  "writeName": 7
 }
 
 ###
@@ -33,4 +33,4 @@ Content-Type: application/json
 
 ###
 # 게시글 삭제
-DELETE http://localhost:8080/boards/8
+DELETE http://localhost:8080/boards/10

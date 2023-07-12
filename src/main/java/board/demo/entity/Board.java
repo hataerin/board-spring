@@ -34,7 +34,7 @@ public class Board {
         return BoardDto.builder()
                 .num(board.boardId)
                 .title(board.title)
-                .content(board.content)
+                .contents(board.content)
                 .writeName(board.writer)
                 .modifyName(board.editor)
                 .build();

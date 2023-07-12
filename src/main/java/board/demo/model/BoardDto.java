@@ -1,27 +1,34 @@
 package board.demo.model;
 
 import board.demo.entity.Board;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
+
+@NoArgsConstructor
 @Getter
 public class BoardDto {
 
     private Integer num;
     private String title;
-    private String content;
+    private String contents;
     private Integer writeName;
     private Integer modifyName;
+
 
     @Builder
     private BoardDto(Integer num,
                      String title,
-                     String content,
+                     String contents,
                      Integer writeName,
                      Integer modifyName) {
         this.num = num;
         this.title = title;
-        this.content = content;
+        this.contents = contents;
         this.writeName = writeName;
         this.modifyName = modifyName;
     }
@@ -30,7 +37,7 @@ public class BoardDto {
         Board board = Board.builder()
                 .boardId(this.num)
                 .title(this.title)
-                .content(this.content)
+                .content(this.contents)
                 .writer(this.writeName)
                 .editor(this.modifyName)
                 .build();
@@ -40,7 +47,7 @@ public class BoardDto {
         Board board = Board.builder()
                 .boardId(boardId)
                 .title(this.title)
-                .content(this.content)
+                .content(this.contents)
                 .writer(this.writeName)
                 .editor(this.modifyName)
                 .build();
